@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Recipes - Recipe Haven</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .glass {
+      background: rgba(0, 0, 0, 0.11);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    #mobileMenu { display: none; }
+    #mobileMenu.show { display: block; animation: slideIn 0.3s ease-out; }
+    @keyframes slideIn {
+      from { transform: translateX(-100%); }
+      to { transform: translateX(0); }
+    }
+    .modal {
+      display: none;
+    }
+    .modal.show {
+      display: flex;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-green-100 to-white text-gray-800 font-sans">
+
+<!-- Navbar -->
+<nav class="flex justify-between items-center px-8 py-4 bg-gradient-to-r from-green-600 to-green-400 text-white shadow-lg w-full">
+  <h1 class="text-3xl font-extrabold text-white tracking-wider">Recipe Haven</h1>
+  <div class="md:hidden">
+    <button id="menu-toggle" class="text-white focus:outline-none">
+      <span class="text-2xl">&#9776;</span>
+    </button>
+  </div>
+  <ul class="hidden md:flex gap-8">
+    <li><a href="index.html" class="hover:text-yellow-300 transition-colors duration-300 text-lg">Home</a></li>
+    <li><a href="recipe.html" class="hover:text-yellow-300 transition-colors duration-300 text-lg">Recipes</a></li>
+    <li><a href="#" class="hover:text-yellow-300 transition-colors duration-300 text-lg">Contact</a></li>
+  </ul>
+  <ul id="mobileMenu" class="md:hidden hidden absolute top-0 left-0 w-full bg-gradient-to-r from-green-600 to-green-400 text-white py-4 px-8 space-y-4 mt-12">
+    <li><a href="index.html" class="hover:text-yellow-300 transition-colors duration-300 text-lg">Home</a></li>
+    <li><a href="recipe.html" class="hover:text-yellow-300 transition-colors duration-300 text-lg">Recipes</a></li>
+    <li><a href="#" class="hover:text-yellow-300 transition-colors duration-300 text-lg">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Recipe Grid -->
+<section class="px-6 py-12">
+  <h2 class="text-4xl font-bold text-center mb-10 text-green-700">All Recipes</h2>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    <!-- Recipe Cards -->
+    <!-- Each card links to a modal by ID -->
+    <div onclick="openModal('adobo')" class="bg-white rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer">
+      <img src="Adobo-chicken-9894-2.jpg" class="rounded-t-xl w-full h-48 object-cover" alt="Chicken Adobo"/>
+      <div class="p-4">
+        <h4 class="font-semibold text-lg mb-2">Chicken Adobo</h4>
+        <p class="text-sm text-gray-600">Savory chicken stew with soy sauce, vinegar, and garlic.</p>
+      </div>
+    </div>
+
+    <div onclick="openModal('sinigang')" class="bg-white rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer">
+      <img src="sinigang na baboy.jpg" class="rounded-t-xl w-full h-48 object-cover" alt="Sinigang na Baboy"/>
+      <div class="p-4">
+        <h4 class="font-semibold text-lg mb-2">Sinigang na Baboy</h4>
+        <p class="text-sm text-gray-600">Tangy tamarind soup with pork and veggies.</p>
+      </div>
+    </div>
+
+    <div onclick="openModal('pancit')" class="bg-white rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer">
+      <img src="pancit-bihon-10-1024x1024.jpg" class="rounded-t-xl w-full h-48 object-cover" alt="Pancit Bihon"/>
+      <div class="p-4">
+        <h4 class="font-semibold text-lg mb-2">Pancit Bihon</h4>
+        <p class="text-sm text-gray-600">Stir-fried rice noodles with vegetables and meat.</p>
+      </div>
+    </div>
+
+    <div onclick="openModal('lechon')" class="bg-white rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer">
+      <img src="lechon kawali.jpg" class="rounded-t-xl w-full h-48 object-cover" alt="Lechon Kawali"/>
+      <div class="p-4">
+        <h4 class="font-semibold text-lg mb-2">Lechon Kawali</h4>
+        <p class="text-sm text-gray-600">Crispy deep-fried pork belly, golden brown and tasty.</p>
+      </div>
+    </div>
+
+    <div onclick="openModal('kare')" class="bg-white rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer">
+      <img src="kare-kare-1.jpg" class="rounded-t-xl w-full h-48 object-cover" alt="Kare-Kare"/>
+      <div class="p-4">
+        <h4 class="font-semibold text-lg mb-2">Kare-Kare</h4>
+        <p class="text-sm text-gray-600">Peanut stew with oxtail and vegetables. Best with bagoong!</p>
+      </div>
+    </div>
+
+    <div onclick="openModal('halo')" class="bg-white rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer">
+      <img src="Halo-Halo.png" class="rounded-t-xl w-full h-48 object-cover" alt="Halo-Halo"/>
+      <div class="p-4">
+        <h4 class="font-semibold text-lg mb-2">Halo-Halo</h4>
+        <p class="text-sm text-gray-600">Icy dessert with sweet beans, ube, leche flan, and more.</p>
+      </div>
+    </div>
+
+    <div onclick="openModal('bicol')" class="bg-white rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer">
+      <img src="bicol express.jpg" class="rounded-t-xl w-full h-48 object-cover" alt="Bicol Express"/>
+      <div class="p-4">
+        <h4 class="font-semibold text-lg mb-2">Bicol Express</h4>
+        <p class="text-sm text-gray-600">Spicy pork in coconut milk with chili peppers.</p>
+      </div>
+    </div>
+
+    <div onclick="openModal('laing')" class="bg-white rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer">
+      <img src="laing.avif" class="rounded-t-xl w-full h-48 object-cover" alt="Laing"/>
+      <div class="p-4">
+        <h4 class="font-semibold text-lg mb-2">Laing</h4>
+        <p class="text-sm text-gray-600">Taro leaves in coconut milk, spicy and rich.</p>
+      </div>
+    </div>
+
+    <div onclick="openModal('puto')" class="bg-white rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer">
+      <img src="puto.webp" class="rounded-t-xl w-full h-48 object-cover" alt="Puto"/>
+      <div class="p-4">
+        <h4 class="font-semibold text-lg mb-2">Puto</h4>
+        <p class="text-sm text-gray-600">Soft steamed rice cakes, topped with cheese or egg.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-white mt-16 py-6 text-center border-t">
+  <p class="text-sm">&copy; 2025 Recipe Haven. All rights reserved.</p>
+  <div class="flex justify-center mt-2 gap-4 text-blue-500">
+    <a href="#" class="hover:underline">Facebook</a>
+    <a href="#" class="hover:underline">Instagram</a>
+    <a href="#" class="hover:underline">Twitter</a>
+  </div>
+</footer>
+
+<!-- Recipe Modals (1 per recipe) -->
+<div id="modals"></div>
+
+<script>
+  const recipes = {
+    adobo: {
+      title: "Chicken Adobo",
+      image: "Adobo-chicken-9894-2.jpg",
+      steps: "Marinate chicken in soy sauce, vinegar, garlic, and pepper. Simmer until tender. Reduce sauce."
+    },
+    sinigang: {
+      title: "Sinigang na Baboy",
+      image: "sinigang na baboy.jpg",
+      steps: "Boil pork with tomatoes, onion, and tamarind. Add vegetables and simmer until cooked."
+    },
+    pancit: {
+      title: "Pancit Bihon",
+      image: "pancit-bihon-10-1024x1024.jpg",
+      steps: "Soften noodles, stir-fry meat and veggies, then mix in noodles and soy sauce."
+    },
+    lechon: {
+      title: "Lechon Kawali",
+      image: "lechon kawali.jpg",
+      steps: "Boil pork until tender, then deep-fry until crispy. Serve with sauce."
+    },
+    kare: {
+      title: "Kare-Kare",
+      image: "kare-kare-1.jpg",
+      steps: "Cook oxtail, add peanut butter and annatto. Add veggies and bagoong on the side."
+    },
+    halo: {
+      title: "Halo-Halo",
+      image: "Halo-Halo.png",
+      steps: "Layer sweetened beans, fruits, ice, leche flan, and ube. Top with milk and ice cream."
+    },
+    bicol: {
+      title: "Bicol Express",
+      image: "bicol express.jpg",
+      steps: "Cook pork in coconut milk, chili, garlic, and shrimp paste until thick and spicy."
+    },
+    laing: {
+      title: "Laing",
+      image: "laing.avif",
+      steps: "Simmer dried taro leaves in coconut milk with chili and meat. Do not stir."
+    },
+    puto: {
+      title: "Puto",
+      image: "puto.webp",
+      steps: "Mix rice flour, sugar, baking powder, and water. Steam in molds. Add cheese if desired."
+    }
+  };
+
+  function openModal(key) {
+    const recipe = recipes[key];
+    const modal = `
+      <div class="modal show fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
+        <div class="bg-white p-6 rounded-lg max-w-md relative">
+          <button onclick="closeModal()" class="absolute top-2 right-3 text-lg">&times;</button>
+          <img src="${recipe.image}" alt="${recipe.title}" class="w-full h-48 object-cover rounded mb-4">
+          <h2 class="text-2xl font-bold mb-2">${recipe.title}</h2>
+          <p class="text-gray-700 text-sm">${recipe.steps}</p>
+        </div>
+      </div>
+    `;
+    document.getElementById("modals").innerHTML = modal;
+  }
+
+  function closeModal() {
+    document.getElementById("modals").innerHTML = '';
+  }
+
+  document.getElementById('menu-toggle').addEventListener('click', () => {
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenu.classList.toggle('show');
+  });
+</script>
+
+</body>
+</html>
