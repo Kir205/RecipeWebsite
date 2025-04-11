@@ -1,0 +1,4 @@
+Recipe Haven is a user-friendly platform that showcases Filipino cuisine. It features a clean, modern interface with a responsive navigation bar that adapts to different screen sizes.
+The website's main content is organized into a grid layout of recipe cards, each showcasing a popular Filipino dish. These cards are interactive, opening a modal pop-up with detailed recipes.
+The design is built using Tailwind CSS, ensuring smooth transitions and accessibility. The website also includes a footer section with essential information and links to social media platforms.
+JavaScript interactivity enhances the user experience by toggling the mobile menu and displaying recipe modals. Overall, Recipe Haven is a visually appealing and user-friendly platform that allows food enthusiasts to explore Filipino cuisine.
